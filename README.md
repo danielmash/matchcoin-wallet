@@ -1,24 +1,24 @@
-Talkcoin integration/staging tree
+Matchcoin integration/staging tree
 ================================
 
-http://www.talkcoin.org
+http://www.matchcoin.tk
 
 Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2014 Talkcoin Developers
+Copyright (c) 2014 Matchcoin Developers
 
-What is Talkcoin?
+What is Matchcoin?
 ----------------
 
-Talkcoin is the first cryptocurrency to offer a true decentralized chat program that won't rely on a central server to deliver messages from the sender to their recipients and lets you communicate freely with anyone in the world without censorship.
+Matchcoin is the first cryptocurrency to offer a true decentralized chat program that won't rely on a central server to deliver messages from the sender to their recipients and lets you communicate freely with anyone in the world without censorship.
 It also has a decentralized block reward voting, fast transactions, new efficient algorithm / GPU miner (based on NIST5: BLAKE - Grøstl - JH - Keccak - Skein).
 
 For more information, as well as an immediately useable, binary version of
-the Talkcoin client sofware, see http://www.talkcoin.org.
+the Matchcoin client sofware, see http://www.matchcoin.tk.
 
 License
 -------
 
-Talkcoin is released under the terms of the MIT license. See `COPYING` for more
+Matchcoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 Development process
@@ -27,7 +27,7 @@ Development process
 Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
 
-If it is a simple/trivial/non-controversial change, then one of the Talkcoin
+If it is a simple/trivial/non-controversial change, then one of the Matchcoin
 development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch
@@ -41,7 +41,7 @@ controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly to indicate new official, stable release versions of Talkcoin.
+regularly to indicate new official, stable release versions of Matchcoin.
 
 Testing
 -------
@@ -62,6 +62,6 @@ Unit tests for the core code are in `src/test/`. To compile and run them:
 
 Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
 
-    qmake TALKCOIN_QT_TEST=1 -o Makefile.test talkcoin-qt.pro
+    qmake TALKCOIN_QT_TEST=1 -o Makefile.test matchcoin-qt.pro
     make -f Makefile.test
-    ./talkcoin-qt_test
+    ./matchcoin-qt_test
