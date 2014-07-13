@@ -33,7 +33,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x00000578c9c073fc55fce4da9fa03339aacfb5f4f274e4c4f6c0f1d99174a860");
+uint256 hashGenesisBlock("000000170661db7217e483febc5701a81fa6fc36cb69d33de83b567ead98e8f7");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Talkcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -67,7 +67,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Talkcoin Signed Message:\n";
+const string strMessageMagic = "Matchcoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -3014,7 +3014,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x00000e5110d9f8b538532743540d6a0b5e65e9bfd7fd1699dd00310181d9a639");
+        hashGenesisBlock = uint256("00000ac1bb64e380d9ab0dd2ab534e9c9501cc9c3be5030177c74579029300ff");
     }
 
     //
@@ -3066,22 +3066,64 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1405233653;
+        block.nTime    = 1405233666;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 219622;
+        block.nNonce   = 1564164;
 
         if (fTestNet)
         {
             block.nTime    = 1405233653;
-            block.nNonce   = 193096;
+            block.nNonce   = 1496167;
         }
 
-        //// debug print
-        uint256 hash = block.GetHash();
+
+       uint256 hash = block.GetHash();
+
+      //// debug print
+
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x98194f5aa82cb8155e9d71cb8715d9433e1b01f2635fd899af181799d3df22d1"));
+
+
+// set to true to mine genesis block
+        if (false && block.GetHash() != hashGenesisBlock)
+        {
+            printf("Searching for genesis block...\n");
+
+            // This will figure out a valid hash and Nonce if you're
+            // creating a different genesis block:
+            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+            //hashTarget = bnProofOfWorkLimit.getuint256();
+
+            while(true)
+            {
+                if (hash <= hashTarget)
+                    break;
+
+                if ((block.nNonce & 0xFFF) == 0)
+                {
+                    printf("nonce %08X: hash = %s (target = %s)\n", block.nNonce, hash.ToString().c_str(), hashTarget.ToString().c_str());
+                }
+
+                ++block.nNonce;
+                if (block.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time\n");
+                    ++block.nTime;
+                }
+
+                hash = block.GetHash();
+            }
+
+            // Debug print
+            printf("block.nTime = %u \n", block.nTime);
+            printf("block.nNonce = %u \n", block.nNonce);
+            printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
+            block.print();
+        }
+
+        assert(block.hashMerkleRoot == uint256("0xfc75387f8907a78388a3caad99c82fcb9c19cd08d049c70c1f9889f2e981e0e0"));
         block.print();
         assert(hash == hashGenesisBlock);
 

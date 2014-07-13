@@ -1035,7 +1035,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Talkcoin
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Talkcoin
     // Mac: ~/Library/Application Support/Talkcoin
-    // Unix: ~/.talkcoin
+    // Unix: ~/.matchcoin
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Talkcoin";
@@ -1053,7 +1053,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Talkcoin";
 #else
     // Unix
-    return pathRet / ".talkcoin";
+    return pathRet / ".matchcoin";
 #endif
 #endif
 }
@@ -1094,7 +1094,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "talkcoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "matchcoin.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1128,7 +1128,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "talkcoind.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "matchcoind.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

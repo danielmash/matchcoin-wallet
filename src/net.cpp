@@ -464,6 +464,9 @@ CNode* FindNode(const CService& addr)
 
 CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
 {
+
+printf("DEBUG ConnectNode %s\n",addrConnect.ToString().c_str());
+
     if (pszDest == NULL) {
         if (IsLocal(addrConnect))
             return NULL;
@@ -1200,12 +1203,12 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"talkcoin.org", "dnsseed.talkcoin.org"},
+    {"matchcoin.local", "127.0.0.1"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"talkcoin.org", "testnet-dnsseed.talkcoin.org"},
+    {"matchcoin.local", "127.0.0.1"},
     {NULL, NULL}
 };
 

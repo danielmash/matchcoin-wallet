@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
     {
         // This message can not be translated, as translation is not initialized yet
         // (which not yet possible because lang=XX can be overridden in talkcoin.conf in the data directory)
-        QMessageBox::critical(0, "Talkcoin",
+        QMessageBox::critical(0, "Matchcoin",
                               QString("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
@@ -154,12 +154,12 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    QApplication::setOrganizationName("Talkcoin");
-    QApplication::setOrganizationDomain("talkcoin.org");
+    QApplication::setOrganizationName("Matchcoin");
+    QApplication::setOrganizationDomain("matchcoin.tk");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        QApplication::setApplicationName("Talkcoin-Qt-testnet");
+        QApplication::setApplicationName("Matchcoin-Qt-testnet");
     else
-        QApplication::setApplicationName("Talkcoin-Qt");
+        QApplication::setApplicationName("Matchcoin-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;
