@@ -114,7 +114,6 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 * update wiki download links
 
-* update wiki changelog: [https://en.talkcoin.it/wiki/Changelog](https://en.bitcoin.it/wiki/Changelog)
 
 Commit your signature to gitian.sigs:
 
