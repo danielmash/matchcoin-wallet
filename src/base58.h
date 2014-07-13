@@ -294,7 +294,7 @@ class CTalkcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 66, // Talkcoin addresses start with T
+        PUBKEY_ADDRESS = 51, // Matchcoin addresses start with M
         SCRIPT_ADDRESS = 5,
         PUBKEY_ADDRESS_TEST = 128,
         SCRIPT_ADDRESS_TEST = 196,

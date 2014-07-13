@@ -49,7 +49,7 @@ QT_TRANSLATE_NOOP("talkcoin-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("talkcoin-core", ""
-"Listen for JSON-RPC connections on <port> (default: 9801 or testnet: 19801)"),
+"Listen for JSON-RPC connections on <port> (default: 3370 or testnet: 13370)"),
 QT_TRANSLATE_NOOP("talkcoin-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: "
 "86400)"),
@@ -142,7 +142,7 @@ QT_TRANSLATE_NOOP("talkcoin-core", "Invalid amount for -mintxfee=<amount>: '%s'"
 QT_TRANSLATE_NOOP("talkcoin-core", "Invalid amount for -paytxfee=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("talkcoin-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("talkcoin-core", "List commands"),
-QT_TRANSLATE_NOOP("talkcoin-core", "Listen for connections on <port> (default: 9802 or testnet: 19802)"),
+QT_TRANSLATE_NOOP("talkcoin-core", "Listen for connections on <port> (default: 3371 or testnet: 13371)"),
 QT_TRANSLATE_NOOP("talkcoin-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("talkcoin-core", "Loading block index..."),
 QT_TRANSLATE_NOOP("talkcoin-core", "Loading wallet..."),

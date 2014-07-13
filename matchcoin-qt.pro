@@ -273,7 +273,7 @@ SOURCES += src/qt/talkcoin.cpp \
     src/qt/walletview.cpp \
     src/qt/walletstack.cpp \
     src/qt/walletframe.cpp \
-    src/talkcoinrpc.cpp \
+    src/matchcoinrpc.cpp \
     src/rpcdump.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \

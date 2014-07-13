@@ -57,15 +57,15 @@ BOOST_AUTO_TEST_CASE(netbase_splithost)
     BOOST_CHECK(TestSplitHost("www.talkcoin.org:80", "www.talkcoin.org", 80));
     BOOST_CHECK(TestSplitHost("[www.talkcoin.org]:80", "www.talkcoin.org", 80));
     BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("127.0.0.1:9802", "127.0.0.1", 9802));
+    BOOST_CHECK(TestSplitHost("127.0.0.1:3371", "127.0.0.1", 3371));
     BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("[127.0.0.1]:9802", "127.0.0.1", 9802));
+    BOOST_CHECK(TestSplitHost("[127.0.0.1]:3371", "127.0.0.1", 3371));
     BOOST_CHECK(TestSplitHost("::ffff:127.0.0.1", "::ffff:127.0.0.1", -1));
-    BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:9802", "::ffff:127.0.0.1", 9802));
-    BOOST_CHECK(TestSplitHost("[::]:9802", "::", 9802));
-    BOOST_CHECK(TestSplitHost("::9802", "::9802", -1));
-    BOOST_CHECK(TestSplitHost(":9802", "", 9802));
-    BOOST_CHECK(TestSplitHost("[]:9802", "", 9802));
+    BOOST_CHECK(TestSplitHost("[::ffff:127.0.0.1]:3371", "::ffff:127.0.0.1", 3371));
+    BOOST_CHECK(TestSplitHost("[::]:3371", "::", 3371));
+    BOOST_CHECK(TestSplitHost("::3371", "::3371", -1));
+    BOOST_CHECK(TestSplitHost(":3371", "", 3371));
+    BOOST_CHECK(TestSplitHost("[]:3371", "", 3371));
     BOOST_CHECK(TestSplitHost("", "", -1));
 }
 
@@ -80,10 +80,10 @@ bool static TestParse(string src, string canon)
 BOOST_AUTO_TEST_CASE(netbase_lookupnumeric)
 {
     BOOST_CHECK(TestParse("127.0.0.1", "127.0.0.1:65535"));
-    BOOST_CHECK(TestParse("127.0.0.1:9802", "127.0.0.1:9802"));
+    BOOST_CHECK(TestParse("127.0.0.1:3371", "127.0.0.1:3371"));
     BOOST_CHECK(TestParse("::ffff:127.0.0.1", "127.0.0.1:65535"));
     BOOST_CHECK(TestParse("::", "[::]:65535"));
-    BOOST_CHECK(TestParse("[::]:9802", "[::]:9802"));
+    BOOST_CHECK(TestParse("[::]:3371", "[::]:3371"));
     BOOST_CHECK(TestParse("[127.0.0.1]", "127.0.0.1:65535"));
     BOOST_CHECK(TestParse(":::", ""));
 }
